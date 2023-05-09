@@ -34,13 +34,10 @@ public class UserServiceImpl implements UserService {
 		Users user = modelMapper.map(userDto,Users.class);
 		user.setCreateAt(LocalDateTime.now());
 	
-	     Users savedUSers =	usersRepo.save(user);
+	    Users savedUSers =usersRepo.save(user);
 	
 	    return modelMapper.map(savedUSers, UserDto.class);
       
-      
- 
-
 
 		
 	}
