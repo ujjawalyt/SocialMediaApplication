@@ -7,5 +7,7 @@ import com.socialmedia.entity.Users;
 @Repository
 public interface UsersRepo extends JpaRepository<Users, Integer> {
 
+  
+	 Users  findByEmail(String email);
 	
 }
