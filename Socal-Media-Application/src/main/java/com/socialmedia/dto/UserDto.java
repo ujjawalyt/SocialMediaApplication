@@ -1,6 +1,8 @@
 package com.socialmedia.dto;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +27,8 @@ public class UserDto {
 	private String password;
 	private String bio;
     private LocalDateTime createAt;
+    
+    private List<RoleDto>roles = new ArrayList();
     
     
 }
