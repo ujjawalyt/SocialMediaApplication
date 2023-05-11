@@ -39,6 +39,16 @@ public class GlobalExceptionHandler {
 	}
 	
 	
-	
+	@ExceptionHandler(TweetsNotFoundException.class)
+	public ResponseEntity<MyErrorDetails> myTWFExceptionHandler(TweetsNotFoundException tnfe ,WebRequest wr){
+		
+		MyErrorDetails error = new MyErrorDetails();
+		
+		error.setTimestamp(LocalDateTime.now());
+		error.setMessage(tnfe.getMessage());
+		error.setDescription(wr.getDescription(false));
+		return new ResponseEntity<MyErrorDetails>(error, HttpStatus.BAD_REQUEST);
+		
+	}
   
 }

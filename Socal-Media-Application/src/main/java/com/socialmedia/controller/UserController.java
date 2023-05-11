@@ -1,5 +1,7 @@
 package com.socialmedia.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +55,14 @@ public class UserController {
 			throws UserNotFoundException{
 		
 		return new ResponseEntity<UserDto>(userService.updateUser(userDto, id),HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/alluser")
+	public ResponseEntity<List<UserDto>> getAllUserHandler()
+			throws UserNotFoundException{
+		
+		return new ResponseEntity<List<UserDto>>(userService.getAllUsers(),HttpStatus.OK);
 	}
 	
 }

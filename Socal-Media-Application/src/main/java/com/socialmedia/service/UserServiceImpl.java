@@ -1,8 +1,9 @@
 package com.socialmedia.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
-
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -129,6 +130,21 @@ public class UserServiceImpl implements UserService {
 		
 		return "User data Deleted successfully..!";
 
+		
+	}
+
+	@Override
+	public List<UserDto> getAllUsers() throws UserNotFoundException {
+		
+		
+		List<Users> users = usersRepo.findAll();
+		
+		List<UserDto> getAllUserDto =  users.stream().map(user -> modelMapper.map(user, UserDto.class))
+				.collect(Collectors.toList());
+		
+				
+		return  getAllUserDto;
+				
 		
 	}
 

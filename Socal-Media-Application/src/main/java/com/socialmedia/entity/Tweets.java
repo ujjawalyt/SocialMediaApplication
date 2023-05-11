@@ -2,6 +2,7 @@ package com.socialmedia.entity;
 
 import java.time.LocalDateTime;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,10 +30,10 @@ public class Tweets {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int tweetId;
 	
-	@Column(name ="content", nullable =  false, length =280)
+	@Column(name ="content",  length =280)
 	private String content;
 	
-	@Column(name ="created_At", nullable =  false, length =100)
+	@Column(name ="created_At", length =100)
 	private LocalDateTime createAt;
 	
 	@ManyToOne

@@ -11,20 +11,19 @@ import lombok.Setter;
 
 
 @Data
-@Setter
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class TweetsDto {
 
 	
 	
 	private int tweetId;
-	
 	private String content;
-	
 	private LocalDateTime createAt;
+	private UserDto user;
+
 	
-	private UserDto userDto;
 }
 
