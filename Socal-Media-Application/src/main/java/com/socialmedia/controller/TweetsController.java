@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.socialmedia.dto.TweetsDto;
+import com.socialmedia.entity.TweetsResponse;
 import com.socialmedia.exceptions.TweetsNotFoundException;
 import com.socialmedia.exceptions.UserNotFoundException;
 import com.socialmedia.service.TweetService;
@@ -69,6 +71,31 @@ public class TweetsController {
 	}
 	
 	
+	@GetMapping("/tweets/{keyword}")
+	public ResponseEntity<List<TweetsDto>>searchByContent(@PathVariable("keyword") String keyword) {
+		
+		return new ResponseEntity<List<TweetsDto>>(tweetService.findByContentKey(keyword),HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/tweets/user/{userid}")
+	public ResponseEntity<TweetsResponse>getTweetsByUser(@PathVariable("userid") Integer id) 
+			throws UserNotFoundException {
+		
+		return new ResponseEntity<TweetsResponse>(tweetService.getTweetsbyUser(id),HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/gettweets/user/{userid}")
+	public ResponseEntity<TweetsResponse>getTweetsByUserPagination(@PathVariable("userid") Integer id,
+			@RequestParam(value = "pageNumber" ,defaultValue = "0",required = false) Integer pageNumber,
+			@RequestParam(value = "pageSize" ,defaultValue = "0",required = false)Integer pageSize
+			
+			) 
+			throws UserNotFoundException {
+		
+		return new ResponseEntity<TweetsResponse>(tweetService.getTweetsbyUser(id, pageNumber, pageSize),HttpStatus.OK);
+	}
 	
 	
 }
