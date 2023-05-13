@@ -86,5 +86,30 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<MyErrorDetails>(error, HttpStatus.BAD_REQUEST);
 		
 	}
+	
+	
+	@ExceptionHandler(RetweetNotFoundException.class)
+	public ResponseEntity<MyErrorDetails> myRNFExceptionHandler( RetweetNotFoundException rn ,WebRequest wr){
+		
+		MyErrorDetails error = new MyErrorDetails();
+		
+		error.setTimestamp(LocalDateTime.now());
+		error.setMessage(rn.getMessage());
+		error.setDescription(wr.getDescription(false));
+		return new ResponseEntity<MyErrorDetails>(error, HttpStatus.BAD_REQUEST);
+		
+	}
+	
+	@ExceptionHandler(RetweetAlreadyExistsException.class)
+	public ResponseEntity<MyErrorDetails> myRNFExceptionHandler( RetweetAlreadyExistsException rn ,WebRequest wr){
+		
+		MyErrorDetails error = new MyErrorDetails();
+		
+		error.setTimestamp(LocalDateTime.now());
+		error.setMessage(rn.getMessage());
+		error.setDescription(wr.getDescription(false));
+		return new ResponseEntity<MyErrorDetails>(error, HttpStatus.BAD_REQUEST);
+		
+	}
   
 }
