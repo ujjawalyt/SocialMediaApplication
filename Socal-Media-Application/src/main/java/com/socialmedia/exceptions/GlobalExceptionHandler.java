@@ -50,5 +50,41 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<MyErrorDetails>(error, HttpStatus.BAD_REQUEST);
 		
 	}
+	
+	@ExceptionHandler(FollowerNotFoundException.class)
+	public ResponseEntity<MyErrorDetails> myFNFExceptionHandler( FollowerNotFoundException fn ,WebRequest wr){
+		
+		MyErrorDetails error = new MyErrorDetails();
+		
+		error.setTimestamp(LocalDateTime.now());
+		error.setMessage(fn.getMessage());
+		error.setDescription(wr.getDescription(false));
+		return new ResponseEntity<MyErrorDetails>(error, HttpStatus.BAD_REQUEST);
+		
+	}
+	
+	@ExceptionHandler(LikeNotFoundException.class)
+	public ResponseEntity<MyErrorDetails> myLNFExceptionHandler( LikeNotFoundException ln ,WebRequest wr){
+		
+		MyErrorDetails error = new MyErrorDetails();
+		
+		error.setTimestamp(LocalDateTime.now());
+		error.setMessage(ln.getMessage());
+		error.setDescription(wr.getDescription(false));
+		return new ResponseEntity<MyErrorDetails>(error, HttpStatus.BAD_REQUEST);
+		
+	}
+	
+	@ExceptionHandler(LikeAlreadyExistsException.class)
+	public ResponseEntity<MyErrorDetails> myLAEExceptionHandler( LikeAlreadyExistsException la ,WebRequest wr){
+		
+		MyErrorDetails error = new MyErrorDetails();
+		
+		error.setTimestamp(LocalDateTime.now());
+		error.setMessage(la.getMessage());
+		error.setDescription(wr.getDescription(false));
+		return new ResponseEntity<MyErrorDetails>(error, HttpStatus.BAD_REQUEST);
+		
+	}
   
 }
