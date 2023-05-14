@@ -14,6 +14,8 @@ This is a RESTful web service for a Social Media platform that provides secure C
 - Swagger UI
 - Postman
 - Spring Security
+- Jwt-Token
+- Jwt-Auth
 
 
 ### ER Diagram
