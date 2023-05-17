@@ -50,3 +50,14 @@ The following Diagram depicts the flow of our Entity Relation Diagram to simplif
 
 `http://localhost:8888/swagger-ui.html`
 
+
+
+### some screenshots of the Swagger UI 
+![social medial](https://github.com/ujjawalyt/SocialMediaApplication/assets/87421981/7ca57368-7bc5-4f43-b2f9-545d572903b1)
+
+
+
+#### For any feedback, report, suggestions, you can contact with me 
+[Let's Connect...](https://www.linkedin.com/in/ujjawal-prakash/)
+### THANK YOU
+
